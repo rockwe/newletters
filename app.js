@@ -15,8 +15,8 @@ if (process.env.ENV === 'dev') {
 } else {
     //mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}?authSource=admin`, { useNewUrlParser: true, user: process.env.DB_USER, pass: process.env.DB_PASS });
     // mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, { useNewUrlParser: true, user: process.env.DB_USER, pass: process.env.DB_PASS });
-    mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@newletters.junwh.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`);
-
+   // mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@newletters.junwh.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`);
+    mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, { useNewUrlParser: true });
 }
 const db = mongoose.connection;
 
