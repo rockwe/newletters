@@ -1,4 +1,8 @@
 const Mail = require('../models/mail');
+var nodemailer = require('nodemailer');
+//var smtpPassword = require('aws-smtp-credentials');
+var smtpTransport = require('nodemailer-smtp-transport');
+
 
 
 exports.create = async (req, res, next) => {
@@ -14,9 +18,45 @@ exports.create = async (req, res, next) => {
                             name: req.body.name,
                             phoneNumber: req.body.phoneNumber || null
                         }).save().then(u => {
-                            res.status(201).json({
-                                user: u
-                            })
+                            var transporter = nodemailer.createTransport(smtpTransport({
+                                host: 'smtp.gmail.com',
+                                secureConnection: true,
+                                port: 465,
+                                transportMethod: 'SMTP',
+                                auth: {
+                                    user: "groupeynovk@gmail.com",
+                                    pass: "Audrey010193!"
+                                }
+                            }));
+
+                            var mailOptions = {
+                                from: req.body.email,
+                                to: req.body.email,
+                                subject: `Message from groupeynovk@gmail.com`,
+                                text: "nous avons bien enregistre votre mail et nous vous contacterons dans les plus brefs delais",
+                                html: '<b>Hey there! </b><br> nous avons bien enregistrer votre mail et nous vous contacterons dans les plus brefs delais<br /><img src="cid:icon.png" alt="icon" />',
+                                attachments: [
+                                    {
+                                        filename: 'logo.png',
+                                        path: __dirname + '/icon.png',
+                                        cid: 'icon.png'
+                                    }
+                                ]
+                            };
+
+                            transporter.sendMail(mailOptions, function (error, info) {
+                                if (error) {
+                                    console.log(error);
+                                } else {
+                                    console.log('Email sent: ' + info.response);
+                                    // res.status(200).json({ message: 'send Mail' });
+                                    res.status(201).json({
+                                        user: u
+                                    })
+
+                                }
+                            });
+
                         }).catch(err => {
                             res.status(500).json({
                                 error: "Une erreur est survenue lors de votre inscription",

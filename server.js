@@ -11,7 +11,7 @@ app.use(function(req, res, next) {
 //const socketManager = require('./helpers/socketManager');
 const pusherManager = require('./helpers/pusher');
 
-const PORT = process.env.PORT || 5730;
+const PORT = process.env.PORT || 5731;
 
 const server = http.createServer(app);
 
