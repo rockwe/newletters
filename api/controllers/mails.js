@@ -16,7 +16,8 @@ exports.create = async (req, res, next) => {
                         const user = new Mail({
                             email: req.body.email,
                             name: req.body.name,
-                            phoneNumber: req.body.phoneNumber || null
+                            phoneNumber: req.body.phoneNumber || null,
+                            reference: req.body.reference
                         }).save().then(u => {
                             var transporter = nodemailer.createTransport(smtpTransport({
                                 host: 'smtp.gmail.com',
@@ -34,7 +35,7 @@ exports.create = async (req, res, next) => {
                                 to: req.body.email,
                                 subject: `Message from groupeynovk@gmail.com`,
                                 text: "nous avons bien enregistre votre mail et nous vous contacterons dans les plus brefs delais",
-                                html: '<b>Hey there! </b><br> nous avons bien enregistrer votre mail et nous vous contacterons dans les plus brefs delais<br /><img src="cid:icon.png" alt="icon" />',
+                                html: '<b>Hey there! </b><br> Votre addresse a été bien enregistré et nous vous contacterons dans les plus brefs delais<br /><img src="cid:icon.png" alt="icon" />',
                                 attachments: [
                                     {
                                         filename: 'logo.png',
