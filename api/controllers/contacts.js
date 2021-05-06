@@ -22,7 +22,7 @@ var smtpTransport = require('nodemailer-smtp-transport');
 
     var mailOptions = {
         from: req.body.email,
-        to: `groupeynovk@gmail.com,${req.body.mail}`,
+        to: `groupeynovk@gmail.com,${req.body.mail},vital.manang@nkap.info,info@nkap.fr,staff@nkap.fr`,
         subject: `Message from ${req.body.email}: ${req.body.title}`,
         text: req.body.description,
         // attachments: [{
