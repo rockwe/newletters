@@ -35,7 +35,7 @@ var smtpTransport = require('nodemailer-smtp-transport');
         to: req.body.email,
         subject: `Message from groupeynovk@gmail.com`,
         text: "nous avons bien recu votre mail et nous vous contacteron dans les plus brefs delais",
-        html: '<b>Hey there! </b><br> nous avons bien recu votre mail et nous vous contacteron dans les plus brefs delais<br /><img src="cid:icon.png" alt="icon" />',
+        html: '<b>Hey there! </b><br> nous avons bien recu votre mail et nous vous contacterons dans les plus brefs delais<br /><img src="cid:icon.png" alt="icon" />',
         attachments: [
             {
                 filename: 'logo.png',
