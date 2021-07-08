@@ -20,21 +20,19 @@ exports.create = async (req, res, next) => {
                             reference: req.body.reference
                         }).save().then(u => {
                             var transporter = nodemailer.createTransport(smtpTransport({
-                                host: 'email-smtp.us-east-2.amazonaws.com',
-                                secureConnection: true,
-                                port: 587,
-                                secure: false,
+                                service: 'gmail',
+                               // port: 587,
                                 auth: {
-                                    user: "AKIAYHZOZEZ3JCR2MW7O",
-                                    pass: "BDXol+I6K4YBl9sip6qZYUBSe4yuW/YgFj31N8QmjcWd"
+                                    user: "groupeynovk@gmail.com",
+                                    pass: "Audrey010193!"
                                 }
                             }));
 
                             var mailOptions = {
-                                from: 'info@nkap.fr',
+                                from: 'groupeynovk@gmail.com',
                                 to: req.body.email,
                                 subject: `Message from info@nkap.fr`,
-                                text: "Nous vous remercions de votre inscription à notre newsletter",
+                                text: "Nous vous remercions de votre inscription à notre newsletter.",
                                 html: '<b>Bienvenue!!!</b><br> Nous vous remercions de votre inscription à notre newsletter. Vous faites désormais partie de la communauté NKAP. \n' +
                                     'En effet, NKAP SARL est une Entreprise de Conseil qui accompagne les personnes et entreprises dans divers services liés aux NTIC (Nouvelles Technique de l\'Information et de la Communication) tel que: Le developpement d\'application, le testing, le Marketing Digital, la Securité et le Reseau informatique...<br /><img src="cid:icon.png" alt="icon" />',
                                 attachments: [
@@ -74,6 +72,8 @@ exports.create = async (req, res, next) => {
                 err: err
             })
         });
+
+
 };
 
 
