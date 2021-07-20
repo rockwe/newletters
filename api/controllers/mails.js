@@ -33,7 +33,7 @@ exports.create = async (req, res, next) => {
                             var mailOptions = {
                                 from: 'info@nkap.info',
                                 to: req.body.email,
-                                subject: `Message from info@nkap.fr`,
+                                subject: `Message from info@nkap.info`,
                                 text: "Nous vous remercions de votre inscription à notre newsletter.",
                                 html: '<b>Bienvenue!!!</b><br> Nous vous remercions de votre inscription à notre newsletter. Vous faites désormais partie de la communauté NKAP. \n' +
                                     'En effet, NKAP SARL est une Entreprise de Conseil qui accompagne les personnes et entreprises dans divers services liés aux NTIC (Nouvelles Technique de l\'Information et de la Communication) tel que: Le developpement d\'application, le testing, le Marketing Digital, la Securité et le Reseau informatique...<br /><img src="cid:icon.png" alt="icon" />',
