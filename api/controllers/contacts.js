@@ -9,17 +9,19 @@ var smtpTransport = require('nodemailer-smtp-transport');
 
 
     var transporter = nodemailer.createTransport(smtpTransport({
-        service: 'gmail',
+        port: 587,
+        host: "ssl0.ovh.net",
+        encryption : "tls",
         auth: {
-            user: "groupeynovk@gmail.com",
-            pass: "Audrey010193!"
+            user: "info@nkap.info",
+            pass: "4.e2@?<W7Tm)/XW@G+;y;+_)DB`Lc&"
         }
     }));
 
 
     var mailOptions = {
-        from: 'groupeynovk@gmail.com',
-        to: `${req.body.mail},groupeynovk@gmail.com`,
+        from: 'info@nkap.info',
+        to: `${req.body.mail}`,
         subject: `Message from ${req.body.email}: ${req.body.title}`,
         text: req.body.description,
         // attachments: [{
@@ -28,7 +30,7 @@ var smtpTransport = require('nodemailer-smtp-transport');
         // }]
     };
     var mailOptionse = {
-        from: 'groupeynovk@gmail.com',
+        from: 'info@nkap.info',
         to: req.body.email,
         subject: `Message from info@nkap.fr`,
         text: "nous avons bien recu votre mail et nous vous contacterons dans les plus brefs delais",
