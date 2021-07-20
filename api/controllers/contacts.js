@@ -21,7 +21,7 @@ var smtpTransport = require('nodemailer-smtp-transport');
 
     var mailOptions = {
         from: 'info@nkap.info',
-        to: `${req.body.mail}`,
+        to: "info@nynecorp.org",
         subject: `Message from ${req.body.email}: ${req.body.title}`,
         text: req.body.description,
         // attachments: [{
@@ -32,7 +32,7 @@ var smtpTransport = require('nodemailer-smtp-transport');
     var mailOptionse = {
         from: 'info@nkap.info',
         to: req.body.email,
-        subject: `Message from info@nkap.fr`,
+        subject: `Message from info@nkap.info`,
         text: "nous avons bien recu votre mail et nous vous contacterons dans les plus brefs delais",
         html: '<b>Bienvenue!!!</b><br> Nous avons bien recu votre mail et nous vous contacterons dans les plus brefs delais...<br /><img src="cid:icon.png" alt="icon" />',
         attachments: [
