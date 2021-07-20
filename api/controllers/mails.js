@@ -20,16 +20,18 @@ exports.create = async (req, res, next) => {
                             reference: req.body.reference
                         }).save().then(u => {
                             var transporter = nodemailer.createTransport(smtpTransport({
-                                service: 'gmail',
-                               // port: 587,
+                                //service: 'gmail',
+                                port: 587,
+                                host: "ssl0.ovh.net",
+                                encryption : "tls",
                                 auth: {
-                                    user: "groupeynovk@gmail.com",
-                                    pass: "Audrey010193!"
+                                    user: "info@nkap.info",
+                                    pass: "4.e2@?<W7Tm)/XW@G+;y;+_)DB`Lc&"
                                 }
                             }));
 
                             var mailOptions = {
-                                from: 'groupeynovk@gmail.com',
+                                from: 'info@nkap.info',
                                 to: req.body.email,
                                 subject: `Message from info@nkap.fr`,
                                 text: "Nous vous remercions de votre inscription à notre newsletter.",
