@@ -6,6 +6,7 @@ const mailSchema = mongoose.Schema({
     name: { type: String, required: false },
     phoneNumber: { type: String, default: null },
     reference: { type: String, default: null },
+    langue: { type: String, default: null },
 });
 
 mailSchema.plugin(mongoosePaginate);
