@@ -46,19 +46,49 @@ exports.create = async (req, res, next) => {
                                 ]
                             };
 
-                            transporter.sendMail(mailOptions, function (error, info) {
-                                if (error) {
-                                    console.log(error);
-                                } else {
-                                    console.log('Email sent: ' + info.response);
-                                    // res.status(200).json({ message: 'send Mail' });
-                                    res.status(201).json({
-                                        user: u
-                                    })
+                            var mailOption = {
+                                from: 'info@nkap.info',
+                                to: req.body.email,
+                                subject: `Message from info@nkap.info`,
+                                text: "Nous vous remercions de votre inscription à notre newsletter.",
+                                html: '<b>Welcome!!!</b><br> Thank you for subscribing to our newsletter. You are now part of the NKAP community. \n' +
+                                    'Indeed, NKAP SARL is a Consulting Company which supports people and companies in various services related to NICT (New Information Technology and Communication) such as: Application development, testing, Digital Marketing, Security and IT Network...<br /><img src="cid:icon.png" alt="icon" />',
+                                attachments: [
+                                    {
+                                        filename: 'logo.png',
+                                        path: __dirname + '/icon.png',
+                                        cid: 'icon.png'
+                                    }
+                                ]
+                            };
 
-                                }
-                            });
+                            if(req.body.langue === "fr") {
+                                transporter.sendMail(mailOptions, function (error, info) {
+                                    if (error) {
+                                        console.log(error);
+                                    } else {
+                                        console.log('Email sent: ' + info.response);
+                                        // res.status(200).json({ message: 'send Mail' });
+                                        res.status(201).json({
+                                            user: u
+                                        })
 
+                                    }
+                                });
+                            }else {
+                                transporter.sendMail(mailOption, function (error, info) {
+                                    if (error) {
+                                        console.log(error);
+                                    } else {
+                                        console.log('Email sent: ' + info.response);
+                                        // res.status(200).json({ message: 'send Mail' });
+                                        res.status(201).json({
+                                            user: u
+                                        })
+
+                                    }
+                                });
+                            }
                         }).catch(err => {
                             res.status(500).json({
                                 error: "Une erreur est survenue lors de votre inscription",

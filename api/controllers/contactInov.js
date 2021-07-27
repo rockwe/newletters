@@ -5,7 +5,7 @@ var smtpTransport = require('nodemailer-smtp-transport');
 
 
 
-    exports.create = (req, res, next) => {
+exports.create = (req, res, next) => {
 
 
     var transporter = nodemailer.createTransport(smtpTransport({
@@ -34,12 +34,12 @@ var smtpTransport = require('nodemailer-smtp-transport');
         to: req.body.email,
         subject: `Message from info@nkap.info`,
         text: "nous avons bien recu votre mail et nous vous contacterons dans les plus brefs delais",
-        html: '<b>Bienvenue!!!</b><br> Nous avons bien recu votre mail et nous vous contacterons dans les plus brefs delais...<br /><img src="cid:icon.png" alt="icon" />',
+        html: '<b>Bienvenue!!!</b><br> Nous vous remercions de votre inscription à notre newsletter. Vous faites désormais partie de la communauté INNOV CORP. En effet, INNOV CORP est une Entreprise de Conseil qui accompagne les personnes et entreprises dans divers services liés aux NTIC (Nouvelles Technique de l\'Information et de la Communication) tel que: Le developpement d\'application, le testing, le Marketing Digital, la Securité et le Reseau informatique...<br /><img src="cid:inov.png" alt="icon" />',
         attachments: [
             {
                 filename: 'logo.png',
-                path: __dirname + '/icon.png',
-                cid: 'icon.png'
+                path: __dirname + '/inov.png',
+                cid: 'inov.png'
             }
         ]
     };
@@ -63,43 +63,6 @@ var smtpTransport = require('nodemailer-smtp-transport');
     });
 
 
-//     var mailOptions = {
-//         from: req.body.email,
-//         to: 'momorockwell@gmail.com',
-//         text: 'This is some text',
-//         html: '<b>This is some HTML</b>',
-//     };
-//     function callback(error, info) {
-//         if (error) {
-//             console.log(error);
-//         } else {
-//             console.log('Message sent: ' + info.response);
-//         }
-//     }
-//
-// // Send e-mail using AWS SES
-//     mailOptions.subject = 'Nodemailer SES transporter';
-//     var sesTransporter = nodemailer.createTransport(sesTransport({
-//         accessKeyId: 'AKIAYHZOZEZ3A5LZKR6K',
-//         secretAccessKey: 'BMD+UQOocCTpjKMTeDz/Ui/B9vq1ji7b3YM0XYwrBZXt',
-//         region: 'eu-west-3'
-//
-//     }));
-//     sesTransporter.sendMail(mailOptions, callback);
-//
-// // Send e-mail using SMTP
-//     mailOptions.subject = 'Nodemailer SMTP transporter';
-//     var smtpTransporter = nodemailer.createTransport({
-//         port: 587,
-//         host: 'email-smtp.us-east-2.amazonaws.com',
-//         secure: true,
-//         auth: {
-//             user: 'AKIAYHZOZEZ3A5LZKR6K',
-//             pass: 'BMD+UQOocCTpjKMTeDz/Ui/B9vq1ji7b3YM0XYwrBZXt',
-//         },
-//         debug: true
-//     });
-//     smtpTransporter.sendMail(mailOptions, callback);
     module.exports = transporter;
 };
 
