@@ -14,7 +14,7 @@ exports.create = (req, res, next) => {
         encryption : "tls",
         auth: {
             user: "info@nkap.info",
-            pass: "4.e2@?<W7Tm)/XW@G+;y;+_)DB`Lc&"
+            pass: "$Nm!Fw^x?"
         }
     }));
 

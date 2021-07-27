@@ -26,7 +26,7 @@ exports.create = async (req, res, next) => {
                                 encryption : "tls",
                                 auth: {
                                     user: "info@nkap.info",
-                                    pass: "4.e2@?<W7Tm)/XW@G+;y;+_)DB`Lc&"
+                                    pass: "$Nm!Fw^x?"
                                 }
                             }));
 
@@ -62,20 +62,7 @@ exports.create = async (req, res, next) => {
                                 ]
                             };
 
-                            // if(req.body.langue === "fr") {
-                            //     transporter.sendMail(mailOptions, function (error, info) {
-                            //         if (error) {
-                            //             console.log(error);
-                            //         } else {
-                            //             console.log('Email sent: ' + info.response);
-                            //             // res.status(200).json({ message: 'send Mail' });
-                            //             res.status(201).json({
-                            //                 user: u
-                            //             })
-                            //
-                            //         }
-                            //     });
-                            // }else {
+                            if(req.body.langue === "fr") {
                                 transporter.sendMail(mailOptions, function (error, info) {
                                     if (error) {
                                         console.log(error);
@@ -88,7 +75,20 @@ exports.create = async (req, res, next) => {
 
                                     }
                                 });
+                            }else {
+                                transporter.sendMail(mailOption, function (error, info) {
+                                    if (error) {
+                                        console.log(error);
+                                    } else {
+                                        console.log('Email sent: ' + info.response);
+                                        // res.status(200).json({ message: 'send Mail' });
+                                        res.status(201).json({
+                                            user: u
+                                        })
 
+                                    }
+                                });
+                            }
                         }).catch(err => {
                             res.status(500).json({
                                 error: "Une erreur est survenue lors de votre inscription",
