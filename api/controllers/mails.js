@@ -61,7 +61,7 @@ exports.create = async (req, res, next) => {
                                     }
                                 ]
                             };
-
+                    console.log('lang-----',req.body.langue);
                             if(req.body.langue === "fr") {
                                 transporter.sendMail(mailOptions, function (error, info) {
                                     if (error) {
