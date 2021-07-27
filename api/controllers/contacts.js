@@ -44,23 +44,56 @@ var smtpTransport = require('nodemailer-smtp-transport');
         ]
     };
 
+        var mailOptionses = {
+            from: 'info@nkap.info',
+            to: req.body.email,
+            subject: `Message from info@nkap.info`,
+            text: "nous avons bien recu votre mail et nous vous contacterons dans les plus brefs delais",
+            html: '<b>Welcome!!!</b><br> We have received your email and we will contact you as soon as possible ...<br /><img src="cid:icon.png" alt="icon" />',
+            attachments: [
+                {
+                    filename: 'logo.png',
+                    path: __dirname + '/icon.png',
+                    cid: 'icon.png'
+                }
+            ]
+        };
 
-    transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
-            transporter.sendMail(mailOptionse, function (error, info) {
+        if(req.body.langue === "fr") {
+            transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
                     console.log(error);
                 } else {
                     console.log('Email sent: ' + info.response);
+                    transporter.sendMail(mailOptionse, function (error, info) {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            console.log('Email sent: ' + info.response);
+                        }
+                    });
+                    res.status(200).json({message: 'send Mail'});
+
                 }
             });
-            res.status(200).json({ message: 'send Mail' });
+        }else {
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response);
+                    transporter.sendMail(mailOptionses, function (error, info) {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            console.log('Email sent: ' + info.response);
+                        }
+                    });
+                    res.status(200).json({message: 'send Mail'});
 
+                }
+            });
         }
-    });
 
 
 //     var mailOptions = {

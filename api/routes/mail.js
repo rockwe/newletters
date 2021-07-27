@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const mailController = require('../controllers/mails');
-const newletterinovController = require('../controllers/mails');
+const newletterinovController = require('../controllers/newletterInov');
 
 
 
