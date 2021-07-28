@@ -21,12 +21,12 @@ exports.create = async (req, res, next) => {
                         }).save().then(u => {
                             var transporter = nodemailer.createTransport(smtpTransport({
                                 port: 587,
-                                host: "email-smtp.us-east-2.amazonaws.com",
-                              //  encryption : "tls",
-                                secure: false,
+                                host: process.env.HOST,
+                               // encryption : "tls",
+                                secure: true,
                                 auth: {
-                                    user: "AKIAYHZOZEZ3KXR7AHPC",
-                                    pass: "kGTv4wy4D8/AC/2Qlb+A4j3QpaGMQUm0tiFCT7d5"
+                                    user: process.env.USER_AUTH,
+                                    pass: process.env.PASSWORD_AUTH
                                 }
                             }));
 
