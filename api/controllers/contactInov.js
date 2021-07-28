@@ -10,11 +10,11 @@ exports.create = (req, res, next) => {
 
     var transporter = nodemailer.createTransport(smtpTransport({
         port: 587,
-        host: "email-smtp.us-east-2.amazonaws.com",
+        host: process.env.HOST,
         encryption : "tls",
         auth: {
-            user: "AKIAYHZOZEZ3KXR7AHPC",
-            pass: "kGTv4wy4D8/AC/2Qlb+A4j3QpaGMQUm0tiFCT7d5"
+            user: process.env.USER_AUTH,
+            pass: process.env.PASSWORD_AUTH
         }
     }));
 
