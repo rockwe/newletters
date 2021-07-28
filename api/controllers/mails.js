@@ -26,7 +26,7 @@ exports.create = async (req, res, next) => {
                                 encryption : "tls",
                                 auth: {
                                     user: "info@nkap.info",
-                                    pass: "@?<W7Tm)/XW@G+;y;+_)DB`Lc&"
+                                    pass: "2Qlb+A4j3QpaGMQUm0tiFCT7d5"
                                 }
                             }));
 
