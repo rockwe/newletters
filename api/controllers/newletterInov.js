@@ -21,7 +21,7 @@ exports.create = async (req, res, next) => {
                 }).save().then(u => {
                     var transporter = nodemailer.createTransport(smtpTransport({
                         port: 587,
-                        host: " email-smtp.us-east-2.amazonaws.com",
+                        host: "email-smtp.us-east-2.amazonaws.com",
                         encryption : "tls",
                         auth: {
                             user: "AKIAYHZOZEZ3KXR7AHPC",
