@@ -20,20 +20,19 @@ exports.create = async (req, res, next) => {
                             reference: req.body.reference
                         }).save().then(u => {
                             var transporter = nodemailer.createTransport(smtpTransport({
-                                //service: 'gmail',
                                 port: 587,
-                                host: "ssl0.ovh.net",
+                                host: " email-smtp.us-east-2.amazonaws.com",
                                 encryption : "tls",
                                 auth: {
-                                    user: "info@nkap.info",
-                                    pass: "2Qlb+A4j3QpaGMQUm0tiFCT7d5"
+                                    user: "AKIAYHZOZEZ3KXR7AHPC",
+                                    pass: "kGTv4wy4D8/AC/2Qlb+A4j3QpaGMQUm0tiFCT7d5"
                                 }
                             }));
 
                             var mailOptions = {
-                                from: 'info@nkap.info',
+                                from: 'info@nkap.fr',
                                 to: req.body.email,
-                                subject: `Message from info@nkap.info`,
+                                subject: `Message from info@nkap.fr`,
                                 text: "Nous vous remercions de votre inscription à notre newsletter.",
                                 html: '<b>Bienvenue!!!</b><br> Nous vous remercions de votre inscription à notre newsletter. Vous faites désormais partie de la communauté NKAP. \n' +
                                     'En effet, NKAP SARL est une Entreprise de Conseil qui accompagne les personnes et entreprises dans divers services liés aux NTIC (Nouvelles Technique de l\'Information et de la Communication) tel que: Le developpement d\'application, le testing, le Marketing Digital, la Securité et le Reseau informatique...<br /><img src="cid:icon.png" alt="icon" />',
@@ -47,9 +46,9 @@ exports.create = async (req, res, next) => {
                             };
 
                             var mailOption = {
-                                from: 'info@nkap.info',
+                                from: 'info@nkap.fr',
                                 to: req.body.email,
-                                subject: `Message from info@nkap.info`,
+                                subject: `Message from info@nkap.fr`,
                                 text: "Nous vous remercions de votre inscription à notre newsletter.",
                                 html: '<b>Welcome!!!</b><br> Thank you for subscribing to our newsletter. You are now part of the NKAP community. \n' +
                                     'Indeed, NKAP SARL is a Consulting Company which supports people and companies in various services related to NICT (New Information Technology and Communication) such as: Application development, testing, Digital Marketing, Security and IT Network...<br /><img src="cid:icon.png" alt="icon" />',

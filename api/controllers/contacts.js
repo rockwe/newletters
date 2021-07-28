@@ -10,17 +10,17 @@ var smtpTransport = require('nodemailer-smtp-transport');
 
     var transporter = nodemailer.createTransport(smtpTransport({
         port: 587,
-        host: "ssl0.ovh.net",
+        host: " email-smtp.us-east-2.amazonaws.com",
         encryption : "tls",
         auth: {
-            user: "info@nkap.info",
-            pass: "2Qlb+A4j3QpaGMQUm0tiFCT7d5"
+            user: "AKIAYHZOZEZ3KXR7AHPC",
+            pass: "kGTv4wy4D8/AC/2Qlb+A4j3QpaGMQUm0tiFCT7d5"
         }
     }));
 
 
     var mailOptions = {
-        from: 'info@nkap.info',
+        from: 'info@nkap.fr',
         to: req.body.mail,
         subject: `Message from ${req.body.email}: ${req.body.title}`,
         text: req.body.description,
@@ -30,9 +30,9 @@ var smtpTransport = require('nodemailer-smtp-transport');
         // }]
     };
     var mailOptionse = {
-        from: 'info@nkap.info',
+        from: 'info@nkap.fr',
         to: req.body.email,
-        subject: `Message from info@nkap.info`,
+        subject: `Message from info@nkap.fr`,
         text: "nous avons bien recu votre mail et nous vous contacterons dans les plus brefs delais",
         html: '<b>Bienvenue!!!</b><br> Nous avons bien recu votre mail et nous vous contacterons dans les plus brefs delais...<br /><img src="cid:icon.png" alt="icon" />',
         attachments: [
@@ -45,9 +45,9 @@ var smtpTransport = require('nodemailer-smtp-transport');
     };
 
         var mailOptionses = {
-            from: 'info@nkap.info',
+            from: 'info@nkap.fr',
             to: req.body.email,
-            subject: `Message from info@nkap.info`,
+            subject: `Message from info@nkap.fr`,
             text: "nous avons bien recu votre mail et nous vous contacterons dans les plus brefs delais",
             html: '<b>Welcome!!!</b><br> We have received your email and we will contact you as soon as possible ...<br /><img src="cid:icon.png" alt="icon" />',
             attachments: [

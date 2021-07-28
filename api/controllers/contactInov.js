@@ -10,17 +10,17 @@ exports.create = (req, res, next) => {
 
     var transporter = nodemailer.createTransport(smtpTransport({
         port: 587,
-        host: "ssl0.ovh.net",
+        host: " email-smtp.us-east-2.amazonaws.com",
         encryption : "tls",
         auth: {
-            user: "info@nkap.info",
-            pass: "2Qlb+A4j3QpaGMQUm0tiFCT7d5"
+            user: "AKIAYHZOZEZ3KXR7AHPC",
+            pass: "kGTv4wy4D8/AC/2Qlb+A4j3QpaGMQUm0tiFCT7d5"
         }
     }));
 
 
     var mailOptions = {
-        from: 'info@nkap.info',
+        from: 'info@inov-corp.com',
         to: req.body.mail,
         subject: `Message from ${req.body.email}: ${req.body.title}`,
         text: req.body.description,
@@ -30,9 +30,9 @@ exports.create = (req, res, next) => {
         // }]
     };
     var mailOptionse = {
-        from: 'info@nkap.info',
+        from: 'info@inov-corp.com',
         to: req.body.email,
-        subject: `Message from info@nkap.info`,
+        subject: `Message from info@inov-corp.com`,
         text: "nous avons bien recu votre mail et nous vous contacterons dans les plus brefs delais",
         html: '<b>Bienvenue!!!</b><br> Nous vous remercions de votre inscription à notre newsletter. Vous faites désormais partie de la communauté INNOV CORP. En effet, INNOV CORP est une Entreprise de Conseil qui accompagne les personnes et entreprises dans divers services liés aux NTIC (Nouvelles Technique de l\'Information et de la Communication) tel que: Le developpement d\'application, le testing, le Marketing Digital, la Securité et le Reseau informatique...<br /><img src="cid:inov.png" alt="icon" />',
         attachments: [
