@@ -12,6 +12,7 @@ exports.create = (req, res, next) => {
         port: 587,
         host: process.env.HOST,
         encryption : "tls",
+        secure: false,
         auth: {
             user: process.env.USER_AUTH,
             pass: process.env.PASSWORD_AUTH

@@ -12,6 +12,7 @@ var smtpTransport = require('nodemailer-smtp-transport');
         port: 587,
         host: process.env.HOST,
         encryption : "tls",
+        secure: false,
         auth: {
             user: process.env.USER_AUTH,
             pass: process.env.PASSWORD_AUTH

@@ -22,8 +22,8 @@ exports.create = async (req, res, next) => {
                             var transporter = nodemailer.createTransport(smtpTransport({
                                 port: 587,
                                 host: process.env.HOST,
-                               // encryption : "tls",
-                                secure: true,
+                                encryption : "tls",
+                                secure: false,
                                 auth: {
                                     user: process.env.USER_AUTH,
                                     pass: process.env.PASSWORD_AUTH
