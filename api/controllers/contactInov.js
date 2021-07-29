@@ -35,7 +35,7 @@ exports.create = (req, res, next) => {
         to: req.body.email,
         subject: `Message from info@inov-corp.com`,
         text: "nous avons bien recu votre mail et nous vous contacterons dans les plus brefs delais",
-        html: '<b>Bienvenue!!!</b><br> Nous vous remercions de votre inscription à notre newsletter. Vous faites désormais partie de la communauté INNOV CORP. En effet, INNOV CORP est une Entreprise de Conseil qui accompagne les personnes et entreprises dans divers services liés aux NTIC (Nouvelles Technique de l\'Information et de la Communication) tel que: Le developpement d\'application, le testing, le Marketing Digital, la Securité et le Reseau informatique...<br /><img src="cid:inov.png" alt="icon" />',
+        html: '<b>Bienvenue!!!</b><br>Nous avons bien recu votre mail et nous vous contacterons dans les plus brefs delais...<br /><img src="cid:inov.png" alt="icon" />',
         attachments: [
             {
                 filename: 'logo.png',
